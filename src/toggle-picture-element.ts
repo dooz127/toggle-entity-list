@@ -44,11 +44,9 @@ export class TogglePictureElement extends LitElement {
         : undefined;
 
     return html`
-      <div>
-        <div class="toggle-picture-element-row">
-          <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
-          <div>${name}</div>
-        </div>
+      <div class="toggle-picture-element-row">
+        <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
+        <div>${name}</div>
       </div>
     `;
   }
