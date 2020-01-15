@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, property, TemplateResult } from 'lit-element';
+import { LitElement, html, customElement, property, TemplateResult, CSSResult, css } from 'lit-element';
 import { HomeAssistant } from 'custom-card-helpers';
 import { TogglePictureElementConfig } from './types';
 import { VERSION } from './const';
@@ -44,12 +44,20 @@ export class TogglePictureElement extends LitElement {
         : undefined;
 
     return html`
-      <ha-entity-toggle
-        .hass=${this.hass}
-        .stateObj=${_entity}
-      ></ha-entity-toggle>
+      <div id="toggle-picture-element">
+        <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
         <div>${name}</div>
       </div>
+    `;
+  }
+  static get styles(): CSSResult {
+    return css`
+      .toggle-picture-element {
+        display: flex;
+        flex-direction: horizontal;
+        align-items: center;
+        padding: 0 8px 0 16px;
+      }
     `;
   }
 }
