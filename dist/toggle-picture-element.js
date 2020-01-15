@@ -9,5 +9,7 @@ function t(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPro
       .toggle-picture-element-row {
         display: flex;
         flex-direction: horizontal;
+        align-items: center;
+        padding: 0 8px 0 16px;
       }
     `}};t([nt()],gt.prototype,"hass",void 0),t([nt()],gt.prototype,"_config",void 0),gt=t([(t=>e=>"function"==typeof e?((t,e)=>(window.customElements.define(t,e),e))(t,e):((t,e)=>{const{kind:s,elements:i}=e;return{kind:s,elements:i,finisher(e){window.customElements.define(t,e)}}})(t,e))("toggle-picture-element")],gt);export{gt as TogglePictureElement};

@@ -57,6 +57,8 @@ export class TogglePictureElement extends LitElement {
       .toggle-picture-element-row {
         display: flex;
         flex-direction: horizontal;
+        align-items: center;
+        padding: 0 8px 0 16px;
       }
     `;
   }
