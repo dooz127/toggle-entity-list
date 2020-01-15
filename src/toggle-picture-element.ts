@@ -52,6 +52,10 @@ export class TogglePictureElement extends LitElement {
   }
   static get styles(): CSSResult {
     return css`
+      ha-entity-toggle {
+        margin-right: 16px;
+      }
+
       .toggle-picture-element-row {
         display: flex;
         flex-direction: horizontal;

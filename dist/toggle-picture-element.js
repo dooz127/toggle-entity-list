@@ -4,6 +4,10 @@ function t(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPro
         <div>${e}</div>
       </div>
     `}static get styles(){return lt`
+      ha-entity-toggle {
+        margin-right: 16px;
+      }
+
       .toggle-picture-element-row {
         display: flex;
         flex-direction: horizontal;
