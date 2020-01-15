@@ -44,19 +44,19 @@ export class TogglePictureElement extends LitElement {
         : undefined;
 
     return html`
-      <div id="toggle-picture-element">
-        <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
-        <div>${name}</div>
+      <div>
+        <div class="toggle-picture-element-row">
+          <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
+          <div>${name}</div>
+        </div>
       </div>
     `;
   }
   static get styles(): CSSResult {
     return css`
-      .toggle-picture-element {
+      .toggle-picture-element-row {
         display: flex;
         flex-direction: horizontal;
-        align-items: center;
-        padding: 0 8px 0 16px;
       }
     `;
   }
