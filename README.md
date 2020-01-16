@@ -1,9 +1,8 @@
-:atom_symbol: # Toggle Picture Element [@dooz127](https://www.github.com/dooz127)
+:atom_symbol: # Toggle Element [@dooz127](https://www.github.com/dooz127)
 
 Add a [Lovelace](https://www.home-assistant.io/lovelace) toggle element to your [Home Assistant](https://www.home-assistant.io/) set-up.
 
 For installation instructions [see this guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins).
-
 
 ## Install
 
@@ -11,13 +10,13 @@ Install `toggle-element.js` as a `module`
 
 ```yaml
 resources:
-  - url: /local/toggle-picture-element.js
+  - url: /local/toggle-element.js
     type: module
 ```
 
 ## Options
 
-| Name              | Type    | Requirement  | Description                                                                                                   | Default                                |  
+| Name              | Type[1](#footnotes)    | Requirement  | Description                                                                                                   | Default                                |  
 | ----------------- | ------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
 | type              | string  | **Required** | `custom:ha-toggle-entity`                                                                                        |                                     |
 | entity            | string  | **Required** | The `entity_id` of the toggle element.                                                                          |                                     |
@@ -33,7 +32,7 @@ resources:
 | Value              | Type                                    | Description                                   
 | ----------------- | ------- | ------------------------------------------------------- | ----------------------------------------------------- | ------------------- | 
 | type              | string  | `icon`, `entity_picture`, `material_switch`, `checkbox` | The type of token representing the toggle element | `icon`              |  
-| ha_entity_toggle
+| toggle
 | checkbox
 | radio_buttons
           
@@ -58,3 +57,6 @@ I relied on these persons' repositories for a lot of ideas:
 [Thomas Loven](https://github.com/thomasloven/)
 [Ian T. Rich](https://github.com/iantrich)
 
+## Footnotes
+
+1. **Bold** `type` indicates the option must be defined. 
