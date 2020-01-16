@@ -1,4 +1,4 @@
-:atom-symbol: # Toggle Picture Element [@dooz127](https://www.github.com/dooz127)
+:atom_symbol: # Toggle Picture Element [@dooz127](https://www.github.com/dooz127)
 
 Add a [Lovelace](https://www.home-assistant.io/lovelace) toggle picture element to your [Home Assistant](https://www.home-assistant.io/) set-up.
 
