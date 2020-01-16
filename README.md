@@ -16,31 +16,22 @@ resources:
 
 ## Options
 
-| Name              | Type[1](#footnotes)    | Requirement  | Description                                                                                                   | Default                                |  
-| ----------------- | ------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| type              | string  | **Required** | `custom:ha-toggle-entity`                                                                                        |                                     |
-| entity            | string  | **Required** | The `entity_id` of the toggle element.                                                                          |                                     |
-| toggle_type       | string  | Optional     | A GUI object representing the toggle element. *See [toggle type options](#toggle-type-options)*.             | `ha_entity_toggle`                  |
-| name              | string  | Optional     | A label for the toggle element.                                                                                  | Default `Lovelace` `entity` name    |
-| secondary         | string  | Optional     | A sub-label for the toggle element.                                                                              |                                     |
-| tap_action        | map     | Optional     | Action to take on tap of `name`. *See [action options](#action-options).*                                        | `action: more-info`                 |
-| hold_action       | map     | Optional     | Action to take on hold of `name`. *See [action options](#action-options).*                                      | `none`                              | 
-| double_tap_action | map     | Optional     | Action to take on double tap of `name`. *See [action options](#action-options).*                                | `action: none`                      |
-
-## Toggle Type Options
-
-| Value              | Type                                    | Description                                   
-| ----------------- | ------- | ------------------------------------------------------- | ----------------------------------------------------- | ------------------- | 
-| type              | string  | `icon`, `entity_picture`, `material_switch`, `checkbox` | The type of token representing the toggle element | `icon`              |  
-| toggle
-| checkbox
-| radio_buttons
+| Name | Type<sup>1(#footnotes)</sup> | Description | Default |  
+| --- | --- | --- | --- |
+| type | **string** | `custom:ha-toggle-entity` | |                                                                                     
+| entity | **string** | The `entity_id` of the `Toggle element`. | |
+| toggle_type | string  | A predefined GUI object representing the `Toggle Element.` Supported options are `mwc_switch`, `mwc_checkbox`, or `mwc_radio_buttons`. | `mwc_switch` |
+| name | string | A label for the `Toggle Element`. | `Lovelace` `entity` name |
+| secondary | string | A sub-label for the `Toggle Element`. | |
+| tap_action | map | Action to take on tap of `name`. Supported options are `more-info`, `toggle`, `call-service`, `navigate`, `url`, or `none`. See [action options](#action-options) for more information. | `action: more-info` |
+| hold_action | map | Optional | Action to take on hold of `name`. Supported options are `more-info`, `toggle`, `call-service`, `navigate`, `url`, or `none`. See [action options](#action-options) for more information. | | 
+| double_tap_action | map | Optional | Action to take on double tap of `name`. Supported options are `more-info`, `toggle`, `call-service`, `navigate`, `url`, or `none`. See [action options](#action-options) for more information. |
           
 ## Action Options
 
-| Name            | Type   | Default | Supported options                                                        | Description                                                                                               |
-| --------------- | ------ | ------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| action          | string | toggle  | `more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`,        | Action to perform                                                                                               |
+| Name | Type<sup>1(#footnotes)</sup> | Description | Default |
+| --- | --- | --- | --- |
+| action | string | toggle  | `more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`,        | Action to perform                                                                                               |
 | entity          | string | none    | Any entity id                                                            | **Only valid for `action: more-info`** to override the entity on which you want to call `more-info`        |
 | navigation_path | string | none    | Eg: `/lovelace/0/`                                                       | Path to navigate to (e.g. `/lovelace/0/`) when action defined as navigate                                     |
 | url_path        | string | none    | Eg: `https://www.google.com`                                             | URL to open on click when action is `url`.                                                                     |
