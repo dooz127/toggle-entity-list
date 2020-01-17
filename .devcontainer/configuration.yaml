@@ -2,3 +2,6 @@ default_config:
 lovelace:
   mode: yaml
 demo:
+input_boolean: 
+  show_sun_icon:
+    initial: on
