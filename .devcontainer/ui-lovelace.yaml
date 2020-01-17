@@ -1,9 +1,21 @@
 resources:
-  - url: http://127.0.0.1:5000/boilerplate-card.js
+  - url: http://127.0.0.1:5000/toggle-element.js
     type: module
 views:
   - cards:
-      - type: custom:boilerplate-card
-        name: Boilerplate Card Development
-        entity: sun.sun
-        test_gui: true
+      - elements:
+          - conditions:
+              - entity: input_boolean.show_sun_icon
+                state: 'on'
+            elements:
+              - entity: sun.sun
+                style: 
+                  left: 50%
+                  top: 50%
+                type: state-icon
+            type: conditional
+          - entity: input_boolean.show_sun_icon
+            type: 'custom:toggle-element.js'
+        type: picture-elements       
+image: 'https://www.home-assistant.io/images/merchandise/shirt-frontpage.png'
+type: picture-glance
