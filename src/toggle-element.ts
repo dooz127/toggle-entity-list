@@ -6,17 +6,17 @@ import { localize } from './localize/localize';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  TOGGLE-PICTURE-ELEMENT \n%c  ${localize('common.version')} ${VERSION}    `,
+  `%c  TOGGLE-ELEMENT \n%c  ${localize('common.version')} ${VERSION}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
 
-@customElement('toggle-picture-element')
-export class TogglePictureElement extends LitElement {
+@customElement('toggle-element')
+export class ToggleElement extends LitElement {
   @property() public hass?: HomeAssistant;
-  @property() private _config?: TogglePictureElementConfig;
+  @property() private _config?: ToggleElementConfig;
 
-  public setConfig(config: TogglePictureElementConfig): void {
+  public setConfig(config: ToggleElementConfig): void {
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));
     }
@@ -44,7 +44,7 @@ export class TogglePictureElement extends LitElement {
         : undefined;
 
     return html`
-      <div class="toggle-picture-element-row">
+      <div class="toggle-element">
         <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
         <div>${name}</div>
       </div>
@@ -56,7 +56,7 @@ export class TogglePictureElement extends LitElement {
         margin-right: 16px;
       }
 
-      .toggle-picture-element-row {
+      .toggle-element {
         display: flex;
         flex-direction: horizontal;
         align-items: center;
