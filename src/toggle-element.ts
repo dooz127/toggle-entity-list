@@ -1,12 +1,12 @@
 import { LitElement, html, customElement, property, TemplateResult, CSSResult, css } from 'lit-element';
 import { HomeAssistant } from 'custom-card-helpers';
-import { TogglePictureElementConfig } from './types';
+import { ToggleElementConfig } from './types';
 import { VERSION } from './const';
 import { localize } from './localize/localize';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  TOGGLE-ELEMENT \n%c  ${localize('common.version')} ${VERSION}    `,
+  `%c  TOGGLE-ELEMENT \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
