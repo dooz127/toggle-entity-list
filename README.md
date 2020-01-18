@@ -18,7 +18,7 @@ For more information, see Thomas Loven's [Lovelace-Plugins](https://github.com/t
 
 Name | Type<sup>[1](#footnotes)</sup> | Description | Notes
 --- | --- | --- | ---
-type | **key:value** | A [Lovelace custom element](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html) key-value mapping for <nobr>:round_pushpin:Toggle Element</nobr> | Must be set to `custom:toggle-element`
+type | **key:value** | A [Lovelace custom element](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html) key-value mapping for :round_pushpin:Toggle Element | Must be set to `custom:toggle-element`
 entity | **key** | A [Home Assistant entity's](https://developers.home-assistant.io/docs/en/architecture_entities.html) identifier in the [backend](https://www.home-assistant.io/docs/backend/) to be presented as a :round_pushpin:Toggle Element in the [frontend](https://www.home-assistant.io/docs/frontend/) | Must be a valid `entity_id` value
 name | string | A label for the :round_pushpin:Toggle Element | Default value is the specified [entity's](https://developers.home-assistant.io/docs/en/architecture_entities.html) `entity_id` or `friendly_name` 
 
