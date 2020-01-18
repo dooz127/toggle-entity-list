@@ -32,7 +32,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/toggle-picture-element.ts',
+    input: 'src/toggle-element.ts',
     output: {
       dir: 'dist',
       format: 'es',
