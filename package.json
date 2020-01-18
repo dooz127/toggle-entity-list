@@ -1,7 +1,7 @@
 {
-  "name": "toggle-picture-element",
+  "name": "toggle-element",
   "version": "0.1.0",
-  "description": "Toggle Picture Element",
+  "description": "Toggle Element",
   "keywords": [
     "home-assistant",
     "homeassistant",
@@ -10,8 +10,8 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "toggle-picture-element.js",
-  "repository": "git@github.com:dooz127/toggle-picture-element.git",
+  "module": "toggle-element.js",
+  "repository": "git@github.com:dooz127/toggle-element.git",
   "author": "Duy Nguyen <dooz127@gmail.com>",
   "license": "MIT",
   "dependencies": {
