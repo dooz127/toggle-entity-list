@@ -1,5 +1,5 @@
 {
-    "name": "Toggle Picture Element",
+    "name": "Toggle Element",
     "render_readme": true,
-    "filename": "toggle-picture-element.js"
+    "filename": "toggle-element.js"
 }
