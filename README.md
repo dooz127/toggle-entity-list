@@ -1,6 +1,6 @@
-# :round_pushpin: Toggle List Element
+# :round_pushpin: Toggle Entity List Element
 
-Add a :round_pushpin:Toggle List Element to your [Home Assistant](https://www.home-assistant.io/) set-up. May be useful for configuring a  [Lovelace Picture Elements card](https://www.home-assistant.io/lovelace/picture-elements/) with a list of [Material Web Components switches](https://material-components.github.io/material-components-web-catalog/#/component/switch). 
+Add a :round_pushpin:Toggle Entity List Element to your [Home Assistant](https://www.home-assistant.io/) set-up. May be useful for configuring a  [Lovelace Picture Elements card](https://www.home-assistant.io/lovelace/picture-elements/) with a list of [Material Web Components switches](https://material-components.github.io/material-components-web-catalog/#/component/switch). 
 
 ## Install
 
