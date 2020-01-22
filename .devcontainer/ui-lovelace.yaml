@@ -10,12 +10,17 @@ views:
             elements:
               - entity: sun.sun
                 style: 
-                  left: 50%
-                  top: 50%
+                  left: 95%
+                  top: 5%
                 type: state-icon
             type: conditional
-          - entity: input_boolean.show_sun_icon
-            type: 'custom:toggle-element.js'
+          - entities:
+              - entity: input_boolean.show_sun_icon
+                name: Show Sun
+            style: 
+              left: 90%
+              top: 90%
+            type: 'custom:toggle-entity-list-element.js'
         type: picture-elements       
-image: 'https://www.home-assistant.io/images/merchandise/shirt-frontpage.png'
-type: picture-glance
+image: 'https://upload.wikimedia.org/wikipedia/de/d/df/PH16-Floorplan_schematic.svg'
+type: picture-elements
