@@ -32,7 +32,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/toggle-element.ts',
+    input: 'src/toggle-entity-list-element.ts',
     output: {
       dir: 'dist',
       format: 'es',
