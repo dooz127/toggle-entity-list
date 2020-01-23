@@ -13,51 +13,21 @@ console.info(
 
 @customElement('toggle-entity-list')
 export class ToggleEntityList extends LitElement {
-  @property() public hass?: HomeAssistant;
+  @property() public _hass?: HomeAssistant;
   @property() private _config?: ToggleEntityListConfig;
-  @property() private _configEntities?: ToggleEntityConfig[];
-
+  
+  public getCardSize(): number {
+    return 1;
+  }
+  
   public setConfig(config: ToggleEntityListConfig): void {
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));
+    } else if (!Array.isArray(config.entities)) {
+      throw new Error("Invalid configuration: entities required");
     }
-
-    const entities = this.processConfigEntities(config.entities);
 
     this._config = config;
-    this._configEntities = entities;
-  }
-
-  private processConfigEntities(entities: Array<ToggleEntityConfig | string>): ToggleEntityConfig[] {
-    if (!entities || !Array.isArray(entities)) {
-      throw new Error('Entities need to be an array');
-    }
-
-    return entities.map((entityConf, index) => {
-      if (typeof entityConf === 'object' && !Array.isArray(entityConf) && entityConf.type) {
-        return entityConf;
-      }
-
-      let config: ToggleEntityConfig;
-
-      if (typeof entityConf === 'string') {
-        // tslint:disable-next-line:no-object-literal-type-assertion
-        config = { entity: entityConf };
-      } else if (typeof entityConf === 'object' && !Array.isArray(entityConf)) {
-        if (!entityConf.entity) {
-          throw new Error(`Entity object at position ${index} is missing entity field.`);
-        }
-        config = entityConf as ToggleEntityConfig;
-      } else {
-        throw new Error(`Invalid entity specified at position ${index}.`);
-      }
-
-      if (!isValidEntityId(config.entity)) {
-        throw new Error(`Invalid entity ID at position ${index}: ${config.entity}`);
-      }
-
-      return config;
-    });
   }
 
   protected shouldUpdate(changedProps: PropertyValues): boolean {
@@ -71,22 +41,24 @@ export class ToggleEntityList extends LitElement {
 
     return html`
       <div class="toggle-entity-list">
-        ${this._configEntities!.map(entityConf => {
-          const entity = this.hass!.states[entityConf.entity];
-          const name =
-            entityConf.name != undefined
+        ${this._config.entities.map(
+          (entityConf: ToggleEntityConfig) => {
+            const entity = this.hass.states[entityConf.entity];
+            const name =
+              entityConf.name != undefined
               ? entityConf.name
               : entity
               ? entity.attributes.friendly_name || entity.entity_id
               : undefined;
-
-          return html`
-            <div class="toggle-entity">
-              <ha-entity-toggle .hass=${this.hass} .stateObj=${entity}></ha-entity-toggle>
-              <div>${name}</div>
-            </div>
-          `;
-        })}
+            
+            return html`
+              <div class="toggle-entity">
+                <ha-entity-toggle .hass=${this.hass} .stateObj=${entity}></ha-entity-toggle>
+                <div>${name}</div>
+              </div>
+            `;
+          }
+        )}
       </div>
     `;
   }
