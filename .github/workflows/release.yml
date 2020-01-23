@@ -14,7 +14,7 @@ jobs:
       # Build
       - name: Build the file
         run: |
-          cd /home/runner/work/toggle-entity-list-element
+          cd /home/runner/work/toggle-entity-list-element/toggle-entity-list-element
           npm install
           npm run build
 
@@ -24,7 +24,7 @@ jobs:
 
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /home/runner/work/toggle-entity-list-element/dist/toggle-entity-list-element.js
+          file: /home/runner/work/toggle-entity-list-element/toggle-entity-list-element/dist/toggle-entity-list-element.js
           asset_name: toggle-entity-list-element.js
           tag: ${{ github.ref }}
           overwrite: true
