@@ -1,10 +1,10 @@
 export interface ToggleEntityListElementConfig {
   type: string;
-  entities: string;
-  name?: string;
+  entities: ToggleEntityConfig[];
 }
 
 export interface ToggleEntityConfig {
+  type?: string;
   entity: string;
   name?: string;
 }
