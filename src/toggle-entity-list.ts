@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property, TemplateResult, CSSResult, css, PropertyValues } from 'lit-element';
 import { HomeAssistant, hasConfigOrEntityChanged } from 'custom-card-helpers';
-import { ToggleEntityListConfig, ToggleEntityConfig } from './types';
+import { ToggleEntityListConfig, ToggleEntityConfig, ToggleEntity } from './types';
 import { ELEMENT_VERSION, isValidEntityId } from './const';
 import { localize } from './localize/localize';
 
@@ -43,12 +43,17 @@ export class ToggleEntityList extends LitElement {
       <div class="toggle-entity-list">
         ${this._config.entities.map(
           (entityConf: ToggleEntityConfig) => {
-            const entity = this.hass.states[entityConf.entity];
+            const base = this.hass.states[entityConf.entity]; 
+            const entity = base && JSON.parse(JSON.stringify(base)) || {
+              entity_id: "light.",
+              attributes: {icon: "no:icon"},
+            };;
+            
             const name =
               entityConf.name != undefined
               ? entityConf.name
               : entity
-              ? entity.attributes.friendly_name || entity.entity_id
+              ? base.attributes.friendly_name || base.entity_id
               : undefined;
             
             return html`
