@@ -70,7 +70,7 @@ export class ToggleEntityList extends LitElement {
     }
 
     return html`
-      <div id="toggle-entity-list">
+      <div class="toggle-entity-list">
         ${this._configEntities!.map(entityConf => {
           const entity = this.hass!.states[entityConf.entity];
           const name =
