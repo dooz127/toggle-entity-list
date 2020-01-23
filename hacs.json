@@ -1,5 +1,5 @@
 {
-    "name": "Toggle Entity List Element",
+    "name": "Toggle Entity List",
     "render_readme": true,
-    "filename": "toggle-entity-list-element.js"
+    "filename": "toggle-entity-list.js"
 }
