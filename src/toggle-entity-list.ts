@@ -1,23 +1,23 @@
 import { LitElement, html, customElement, property, TemplateResult, CSSResult, css, PropertyValues } from 'lit-element';
 import { HomeAssistant, hasConfigOrEntityChanged } from 'custom-card-helpers';
-import { ToggleEntityListElementConfig, ToggleEntityConfig } from './types';
+import { ToggleEntityListConfig, ToggleEntityConfig } from './types';
 import { ELEMENT_VERSION, isValidEntityId } from './const';
 import { localize } from './localize/localize';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  TOGGLE-ENTITY-LIST-ELEMENT \n%c  ${localize('common.version')} ${ELEMENT_VERSION}    `,
+  `%c  TOGGLE-ENTITY-LIST \n%c  ${localize('common.version')} ${ELEMENT_VERSION}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
 
-@customElement('toggle-entity-list-element')
-export class ToggleEntityListElement extends LitElement {
+@customElement('toggle-entity-list')
+export class ToggleEntityList extends LitElement {
   @property() public hass?: HomeAssistant;
-  @property() private _config?: ToggleEntityListElementConfig;
+  @property() private _config?: ToggleEntityListConfig;
   @property() private _configEntities?: ToggleEntityConfig[];
 
-  public setConfig(config: ToggleEntityListElementConfig): void {
+  public setConfig(config: ToggleEntityListConfig): void {
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));
     }
@@ -70,7 +70,7 @@ export class ToggleEntityListElement extends LitElement {
     }
 
     return html`
-      <div id="toggle-entity-list-element">
+      <div id="toggle-entity-list">
         ${this._configEntities!.map(entityConf => {
           const entity = this.hass!.states[entityConf.entity];
           const name =
@@ -81,7 +81,7 @@ export class ToggleEntityListElement extends LitElement {
               : undefined;
 
           return html`
-            <div class="toggle-entity-element">
+            <div class="toggle-entity">
               <ha-entity-toggle .hass=${this.hass} .stateObj=${entity}></ha-entity-toggle>
               <div>${name}</div>
             </div>
@@ -97,7 +97,7 @@ export class ToggleEntityListElement extends LitElement {
         margin-right: 16px;
       }
 
-      .toggle-entity-element {
+      .toggle-entity {
         display: flex;
         flex-direction: horizontal;
         align-items: center;
