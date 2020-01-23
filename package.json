@@ -1,7 +1,7 @@
 {
-  "name": "toggle-entity-list-element",
-  "version": "0.1.0",
-  "description": "Toggle Entity List Element",
+  "name": "toggle-entity-list",
+  "version": "0.2.0",
+  "description": "Toggle Entity List",
   "keywords": [
     "home-assistant",
     "homeassistant",
@@ -10,8 +10,8 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "toggle-entity-list-element.js",
-  "repository": "git@github.com:dooz127/toggle-entity-list-element.git",
+  "module": "toggle-entity-list.js",
+  "repository": "git@github.com:dooz127/toggle-entity-list.git",
   "author": "Duy Nguyen <dooz127@gmail.com>",
   "license": "MIT",
   "dependencies": {
