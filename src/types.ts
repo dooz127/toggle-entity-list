@@ -4,7 +4,7 @@ export interface ToggleEntityListElementConfig {
 }
 
 export interface ToggleEntityConfig {
-  type?: string;
   entity: string;
   name?: string;
+  type?: string;
 }
