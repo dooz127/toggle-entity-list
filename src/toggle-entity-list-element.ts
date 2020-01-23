@@ -20,21 +20,66 @@ export class ToggleEntityListElement extends LitElement {
   set hass(hass: HomeAssistant) {
     this._hass = hass;
     for (const el of Array.from(
-      this.shadowRoot!
+      this.shadowRoot!.querySelectorAll("#toggleEntityList > *")
+    )) {
+      const element = el
+      element.hass = this._hass;
+    }
+  }
 
   public setConfig(config: ToggleEntityListElementConfig): void {
     if (!config) {
       throw new Error(localize('common.invalid_configuration'));
     }
-
-    if (!config.entities) {
-      throw new Error('Invalid configuration: No entities defined');
-    }
     
-    const entities = processConfigEntities(config.entities);
-         
+    const entities = this.processConfigEntities(config.entities);
+    
     this._config = config;
     this._configEntities = entities;
+  }
+
+  private processConfigEntities(entities: ): void {
+    if (!Array.isArray(entities)) {
+      throw new Error('Invalid configuration: Entities need to be an array');
+    }
+    
+      return entities.map(
+    (entityConf, index): T => {
+      if (
+        typeof entityConf === "object" &&
+        !Array.isArray(entityConf) &&
+        entityConf.type
+      ) {
+        return entityConf;
+      }
+
+      let config: T;
+
+      if (typeof entityConf === "string") {
+        // tslint:disable-next-line:no-object-literal-type-assertion
+        config = { entity: entityConf } as T;
+      } else if (typeof entityConf === "object" && !Array.isArray(entityConf)) {
+        if (!entityConf.entity) {
+          throw new Error(
+            `Entity object at position ${index} is missing entity field.`
+          );
+        }
+        config = entityConf as T;
+      } else {
+        throw new Error(`Invalid entity specified at position ${index}.`);
+      }
+
+      if (!isValidEntityId(config.entity)) {
+        throw new Error(
+          `Invalid entity ID at position ${index}: ${config.entity}`
+        );
+      }
+
+      return config;
+    }
+  );
+                
+    this._config = config;
   }
 
   protected shouldUpdate(changedProps: PropertyValues): boolean {
@@ -46,6 +91,8 @@ export class ToggleEntityListElement extends LitElement {
       return html``;
     }
 
+    this._config.entities.forEach(_entity => {
+    
     const _entity = this.hass.states[this._config.entity];
 
     const name =
@@ -56,8 +103,17 @@ export class ToggleEntityListElement extends LitElement {
         : undefined;
 
     return html`
-      <div class="toggle-entity-list-element">
-        <ha-entity-toggle .hass=${this.hass} .stateObj=${_entity}></ha-entity-toggle>
+      <div id="toggleEntityList">
+        ${this._config.entities.map(
+          (elementConfig: ToggleEntityElementConfig) => {
+            const toggleEntityElement = this.create
+            toggleEntityElement.hass = this._hass;
+      
+            return toggleEntityElement;
+          }
+        )}
+      </div>
+        
         <div>${name}</div>
       </div>
     `;
