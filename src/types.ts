@@ -1,4 +1,4 @@
-export interface ToggleEntityListElementConfig {
+export interface ToggleEntityListConfig {
   type: string;
   entities: ToggleEntityConfig[];
 }
