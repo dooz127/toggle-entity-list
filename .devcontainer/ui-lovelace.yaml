@@ -1,5 +1,5 @@
 resources:
-  - url: http://127.0.0.1:5000/toggle-entity-list-element.js
+  - url: http://127.0.0.1:5000/toggle-entity-list.js
     type: module
 views:
   - cards:
@@ -20,7 +20,7 @@ views:
             style: 
               left: 90%
               top: 90%
-            type: 'custom:toggle-entity-list-element.js'
+            type: 'custom:toggle-entity-list.js'
         type: picture-elements       
 image: 'https://upload.wikimedia.org/wikipedia/de/d/df/PH16-Floorplan_schematic.svg'
 type: picture-elements
